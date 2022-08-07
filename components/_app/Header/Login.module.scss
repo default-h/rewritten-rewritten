@@ -81,19 +81,27 @@
       .inputfield {
         display: flex;
         flex-direction: column;
+        align-items: center;
+        justify-content: center;
         font-family: var(--brand-font);
         text-align: left;
-      }
 
-      .forgot {
-        margin-top: 0.4rem;
-        font-size: 0.95rem;
-        font-family: var(--secondary-font);
-        text-align: right;
-        text-decoration: underline;
-        color: var(--white);
-        &:hover {
-          text-decoration: none;
+        .forgot {
+          width: 100%;
+          margin-top: 0.4rem;
+          font-size: 0.95rem;
+          font-family: var(--secondary-font);
+          text-align: right;
+          text-decoration: underline;
+          color: var(--white);
+          &:hover {
+            text-decoration: none;
+          }
+        }
+
+        label {
+          width: 100%;
+          margin-left: 1rem;
         }
       }
 

@@ -22,9 +22,36 @@
   filter: drop-shadow(var(--text-shadow));
 }
 
-.menu {
-  position: relative;
+.navbar {
+  width: 100vw;
+  border-top: 3px solid var(--primary-dark);
 
+  height: 70px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2.25rem;
+
+  margin-left: auto;
+  margin-right: auto;
+
+  background-color: var(--primary);
+  text-shadow: var(--text-shadow);
+  nav {
+    max-width: 83rem;
+    width: 100%;
+    //position: relative;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+  }
+}
+
+.play-container {
+  visibility: hidden;
+}
+
+.menu {
   .news::before {
     @include icon-styling;
     background-image: url('../../../public/assets/icons/bullhorn-solid.svg');
@@ -58,94 +85,39 @@
   }
 }
 
-.navbar {
-  width: 100vw;
-  border-top: 3px solid var(--primary-dark);
-
-  height: 70px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 2.25rem;
-
-  margin-left: auto;
-  margin-right: auto;
-
-  background-color: var(--primary);
-  text-shadow: var(--text-shadow);
-
-  nav {
-    max-width: 83rem;
-    width: 100%;
-    //position: relative;
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-
-    .play-container {
-      display: flex;
-
-      position: absolute;
-      z-index: 1;
-      right: 0;
-      top: 0;
-      margin-top: 1.125rem;
-
-      .left {
-        text-align: right;
-      }
-
-      .right {
-        transition: all 0.5s;
-        transition-timing-function: var(--bounce);
-        transform: scale(1);
-
-        &:hover {
-          transform: rotate(6deg) scale(1);
-        }
-      }
-
-      p {
-        font-family: Arial, Roboto, sans-serif;
-        font-size: 0.9rem;
-        color: var(--white);
-        line-height: 1.2rem;
-        button {
-          font-family: 'Anton', sans-serif;
-          color: var(--white);
-          font-size: 0.9rem;
-          text-decoration: underline;
-
-          &:hover {
-            text-decoration: none;
-          }
-        }
-      }
-    }
-  }
-}
-
-// .logo,
-// .menu {
-//   flex-grow: 1;
-//   flex-basis: 0;
-// }
-
 .menu {
   display: flex;
-  align-items: center;
+  position: fixed;
+  flex-direction: column;
   justify-content: center;
-  border: none;
-  gap: 4.5rem;
-  margin-left: 4rem;
-}
+  align-items: center;
+  gap: 3rem;
+  left: 100%;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  width: 100vw;
+  height: 100vh;
 
+  background: url('../../../public/assets/brand/pattern_fish.webp'),
+    linear-gradient(var(--primary-dark), rgb(29, 106, 136));
+  background-blend-mode: soft-light;
+
+  z-index: 2;
+  transition: left 1s;
+  border-left: 5px solid var(--white);
+  border-top: 5px solid var(--white);
+  border-radius: 2rem 0 0 0;
+
+  color: var(--white);
+}
 .menu li,
 .menu button {
   font-family: var(--brand-font);
   text-transform: uppercase;
   color: var(--white);
-  font-size: 1.33rem;
+  // font-size: 1.33rem;
+  font-size: 2.5rem;
   display: flex;
   transition: all 0.2s;
   text-align: center;
@@ -156,99 +128,137 @@
 }
 
 .menu-btn {
-  display: none;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 30px;
+  width: 30px;
+  transition: all 0.5s;
+  transition-timing-function: var(--bounce);
+  z-index: 2;
 }
 
-@media screen and (max-width: 720px) {
-  .play-container {
-    visibility: hidden;
-  }
+//fancy button animation
 
-  .menu {
-    display: flex;
-    position: fixed;
-    flex-direction: column;
-    justify-content: center;
-    left: 100%;
-    top: 0;
-    bottom: 0;
-    right: 0;
-    width: 100vw;
-    height: 100vh;
+.menu-btn__burger {
+  width: 30px;
+  height: 4.5px;
+  background: var(--white);
+  border-radius: 5px;
+  position: relative;
 
-    overflow-y: hidden;
-    background: url('../../../public/assets/brand/pattern_fish.webp'),
-      linear-gradient(var(--primary-dark), rgb(29, 106, 136));
-    background-blend-mode: soft-light;
+  transition: all 0.5s;
+  transition-timing-function: var(--bounce);
+}
+.menu-btn__burger::before,
+.menu-btn__burger::after {
+  content: '';
+  position: absolute;
+  width: 30px;
+  height: 4.5px;
+  background: var(--white);
+  border-radius: 5px;
 
-    z-index: 999;
-    transition: left 1s;
-    border-left: 5px solid var(--white);
-    border-top: 5px solid var(--white);
-    border-radius: 2rem 0 0 0;
-    margin-left: 0rem;
-  }
+  transition: all 0.5s;
+  transition-timing-function: var(--bounce);
+}
+.menu-btn__burger::before {
+  transform: translateX(-15px) translateY(-10px);
+}
+.menu-btn__burger::after {
+  transform: translateX(-15px) translateY(10px);
+}
+
+.menu-btn.open .menu-btn__burger {
+  transform: translateX(-75px);
+  background: transparent;
+  position: fixed;
+}
+.menu-btn.open .menu-btn__burger::before {
+  transform: rotate(45deg) translate(43px, -43px);
+}
+.menu-btn.open .menu-btn__burger::after {
+  transform: rotate(-45deg) translate(43px, 43px);
+}
+
+.active {
+  left: 0rem;
+}
+
+@media (min-width: 1024px) {
   .menu-btn {
-    position: relative;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 30px;
-    width: 30px;
-    transition: all 0.5s;
-    transition-timing-function: var(--bounce);
-    z-index: 999;
+    display: none;
   }
+  .navbar {
+    nav {
+      max-width: 83rem;
+      width: 100%;
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+      .menu {
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        flex-direction: row;
+        border: none;
+        background: none;
+        gap: 4.5rem;
+        margin-left: 4rem;
+        position: relative;
+        z-index: 1;
+        left: 0;
 
-  //fancy button animation
+        border-radius: 0;
+        margin-left: 4rem;
+        li,
+        button {
+          font-size: 1.33rem;
+        }
+      }
 
-  .menu-btn__burger {
-    width: 30px;
-    height: 4.5px;
-    background: var(--white);
-    border-radius: 5px;
-    position: relative;
+      .play-container {
+        visibility: visible;
+        display: flex;
 
-    transition: all 0.5s;
-    transition-timing-function: var(--bounce);
-  }
-  .menu-btn__burger::before,
-  .menu-btn__burger::after {
-    content: '';
-    position: absolute;
-    width: 30px;
-    height: 4.5px;
-    background: var(--white);
-    border-radius: 5px;
+        position: absolute;
+        z-index: 1;
+        right: 0;
+        top: 0;
+        margin-top: 1.125rem;
 
-    transition: all 0.5s;
-    transition-timing-function: var(--bounce);
-  }
-  .menu-btn__burger::before {
-    transform: translateX(-15px) translateY(-10px);
-  }
-  .menu-btn__burger::after {
-    transform: translateX(-15px) translateY(10px);
-  }
+        .left {
+          text-align: right;
+        }
 
-  .menu-btn.open .menu-btn__burger {
-    transform: translateX(-75px);
-    background: transparent;
-    position: fixed;
-  }
-  .menu-btn.open .menu-btn__burger::before {
-    transform: rotate(45deg) translate(43px, -43px);
-  }
-  .menu-btn.open .menu-btn__burger::after {
-    transform: rotate(-45deg) translate(43px, 43px);
-  }
+        .right {
+          transition: all 0.5s;
+          transition-timing-function: var(--bounce);
+          transform: scale(1);
 
-  .active {
-    left: 0rem;
-  }
+          &:hover {
+            transform: rotate(6deg) scale(1);
+          }
+        }
+        p {
+          font-family: Arial, Roboto, sans-serif;
+          font-size: 0.9rem;
+          color: var(--white);
+          line-height: 1.2rem;
+          button {
+            font-family: 'Anton', sans-serif;
+            color: var(--white);
+            font-size: 0.9rem;
+            text-decoration: underline;
 
-  .navbar a {
-    font-size: 2rem;
+            &:hover {
+              text-decoration: none;
+            }
+          }
+        }
+      }
+    }
   }
 }
 

@@ -1,11 +1,10 @@
 import Head from 'next/head';
 import Image from 'next/image';
 import Link from 'next/link';
-import styles from '../styles/Home.module.scss';
 
 import Message from '../components/404/Message';
 
-export default function Home() {
+export default function fourzerofour() {
   return (
     <>
       <Head>
@@ -18,7 +17,7 @@ export default function Home() {
         <link rel='icon' href='/favicon.ico' />
       </Head>
 
-      <main className={styles.main}>
+      <main>
         <Message />
       </main>
     </>

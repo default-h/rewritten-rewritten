@@ -14,10 +14,11 @@ The reasoning behind this project is for my own benefit in web development. This
 - Follows web accessibility standards (WCAG)
 - Responsive across different devices
 - Consumes data from a third-party Web API
+  - Data is displayed as blogpost previews. Each preview contains it's unique title and image. Clicking on the preview will open its associated blogpost in a new tab.
 - Features a mock-up of a registration/login modal w/ form validation
 - Reinforces HTML semantics
 - Other:
-  - Custom 404 page
+  - Custom 404 + 500 page
   - Responsive across different devices
   - Interactive
   - Fixes current issues from original website (see below!)
@@ -48,3 +49,8 @@ After completing the project, I walked away with confidence. In addition, the sk
 - [Next.JS](https://nextjs.org/)
 - [SASS](https://sass-lang.com/)
 - [Toontown Rewritten API](https://github.com/ToontownRewritten/api-doc)
+
+## To-Do List
+
+- [ ] Finalize navigation bar
+- [ ] Implement form validation
