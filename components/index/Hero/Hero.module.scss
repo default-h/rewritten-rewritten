@@ -1,0 +1,42 @@
+.container {
+  display: flex;
+  margin-bottom: 0.75rem;
+  width: 100vw;
+  .banner {
+    position: relative;
+  }
+  .container-video {
+    display: none;
+  }
+}
+
+@media (min-width: 1024px) {
+  .container {
+    .banner {
+      display: none;
+    }
+    .container-video {
+      display: block;
+      position: relative;
+
+      .playbtn {
+        position: absolute;
+        bottom: 4.5rem;
+        left: 50%;
+        -webkit-transform: translateX(-50%);
+        transform: translateX(-50%);
+
+        transition: all 0.5s;
+        transition-timing-function: var(--bounce);
+
+        &:hover {
+          filter: brightness(1.25);
+        }
+      }
+
+      video {
+        width: 100vw;
+      }
+    }
+  }
+}

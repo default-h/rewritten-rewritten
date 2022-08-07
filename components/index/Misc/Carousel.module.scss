@@ -1,0 +1,13 @@
+.container {
+  border-radius: 1rem;
+  width: 94%;
+
+  box-shadow: var(--box-shadow);
+
+  line-height: 0;
+  overflow: hidden;
+
+  img {
+    height: 100%;
+  }
+}

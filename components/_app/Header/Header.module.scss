@@ -1,0 +1,262 @@
+@mixin text-styling-s {
+  color: white;
+  font-family: 'Bowlby One SC';
+  font-size: 1.15rem;
+  text-shadow: var(--text-shadow);
+}
+
+@mixin text-styling-l {
+  color: white;
+  font-family: 'Bowlby One SC';
+  font-size: 1.5rem;
+  text-shadow: var(--text-shadow);
+}
+
+@mixin icon-styling {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  margin: auto 0;
+  transform: translateX(-32px);
+
+  filter: drop-shadow(var(--text-shadow));
+}
+
+.menu {
+  position: relative;
+
+  .news::before {
+    @include icon-styling;
+    background-image: url('../../../public/assets/icons/bullhorn-solid.svg');
+    width: 24px;
+    height: 24px;
+    content: '';
+  }
+
+  .sellbot::before {
+    @include icon-styling;
+    background-image: url('../../../public/assets/icons/gears-solid.svg');
+    width: 24px;
+    height: 19.2px;
+    content: '';
+  }
+
+  .signup::before {
+    @include icon-styling;
+    background-image: url('../../../public/assets/icons/gamepad-solid.svg');
+    width: 24px;
+    height: 19.2px;
+    content: '';
+  }
+  .help::before {
+    @include icon-styling;
+    background-image: url('../../../public/assets/icons/circle-question-solid.svg');
+    width: 24px;
+    height: 24px;
+
+    content: '';
+  }
+}
+
+.navbar {
+  width: 100vw;
+  border-top: 3px solid var(--primary-dark);
+
+  height: 70px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2.25rem;
+
+  margin-left: auto;
+  margin-right: auto;
+
+  background-color: var(--primary);
+  text-shadow: var(--text-shadow);
+
+  nav {
+    max-width: 83rem;
+    width: 100%;
+    //position: relative;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+
+    .play-container {
+      display: flex;
+
+      position: absolute;
+      z-index: 1;
+      right: 0;
+      top: 0;
+      margin-top: 1.125rem;
+
+      .left {
+        text-align: right;
+      }
+
+      .right {
+        transition: all 0.5s;
+        transition-timing-function: var(--bounce);
+        transform: scale(1);
+
+        &:hover {
+          transform: rotate(6deg) scale(1);
+        }
+      }
+
+      p {
+        font-family: Arial, Roboto, sans-serif;
+        font-size: 0.9rem;
+        color: var(--white);
+        line-height: 1.2rem;
+        button {
+          font-family: 'Anton', sans-serif;
+          color: var(--white);
+          font-size: 0.9rem;
+          text-decoration: underline;
+
+          &:hover {
+            text-decoration: none;
+          }
+        }
+      }
+    }
+  }
+}
+
+// .logo,
+// .menu {
+//   flex-grow: 1;
+//   flex-basis: 0;
+// }
+
+.menu {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  gap: 4.5rem;
+  margin-left: 4rem;
+}
+
+.menu li,
+.menu button {
+  font-family: var(--brand-font);
+  text-transform: uppercase;
+  color: var(--white);
+  font-size: 1.33rem;
+  display: flex;
+  transition: all 0.2s;
+  text-align: center;
+
+  &:hover {
+    color: var(--yellow);
+  }
+}
+
+.menu-btn {
+  display: none;
+}
+
+@media screen and (max-width: 720px) {
+  .play-container {
+    visibility: hidden;
+  }
+
+  .menu {
+    display: flex;
+    position: fixed;
+    flex-direction: column;
+    justify-content: center;
+    left: 100%;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    width: 100vw;
+    height: 100vh;
+
+    overflow-y: hidden;
+    background: url('../../../public/assets/brand/pattern_fish.webp'),
+      linear-gradient(var(--primary-dark), rgb(29, 106, 136));
+    background-blend-mode: soft-light;
+
+    z-index: 999;
+    transition: left 1s;
+    border-left: 5px solid var(--white);
+    border-top: 5px solid var(--white);
+    border-radius: 2rem 0 0 0;
+    margin-left: 0rem;
+  }
+  .menu-btn {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 30px;
+    width: 30px;
+    transition: all 0.5s;
+    transition-timing-function: var(--bounce);
+    z-index: 999;
+  }
+
+  //fancy button animation
+
+  .menu-btn__burger {
+    width: 30px;
+    height: 4.5px;
+    background: var(--white);
+    border-radius: 5px;
+    position: relative;
+
+    transition: all 0.5s;
+    transition-timing-function: var(--bounce);
+  }
+  .menu-btn__burger::before,
+  .menu-btn__burger::after {
+    content: '';
+    position: absolute;
+    width: 30px;
+    height: 4.5px;
+    background: var(--white);
+    border-radius: 5px;
+
+    transition: all 0.5s;
+    transition-timing-function: var(--bounce);
+  }
+  .menu-btn__burger::before {
+    transform: translateX(-15px) translateY(-10px);
+  }
+  .menu-btn__burger::after {
+    transform: translateX(-15px) translateY(10px);
+  }
+
+  .menu-btn.open .menu-btn__burger {
+    transform: translateX(-75px);
+    background: transparent;
+    position: fixed;
+  }
+  .menu-btn.open .menu-btn__burger::before {
+    transform: rotate(45deg) translate(43px, -43px);
+  }
+  .menu-btn.open .menu-btn__burger::after {
+    transform: rotate(-45deg) translate(43px, 43px);
+  }
+
+  .active {
+    left: 0rem;
+  }
+
+  .navbar a {
+    font-size: 2rem;
+  }
+}
+
+.signin {
+  background-color: var(--primary);
+  border-radius: 1rem;
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+  color: var(--black);
+  font-family: ObjectifyM;
+}

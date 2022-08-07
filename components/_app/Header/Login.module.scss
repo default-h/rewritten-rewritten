@@ -1,0 +1,173 @@
+@mixin modal-styling {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+  flex-direction: column;
+}
+
+.container {
+  position: fixed;
+  display: flex;
+
+  justify-content: center;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(10, 21, 45, 0.8);
+  z-index: 2;
+  top: 0;
+  left: 0;
+  animation: fadein 0.33s ease-out;
+
+  @keyframes fadein {
+    0% {
+      opacity: 0;
+    }
+
+    100% {
+      opacity: 1;
+    }
+  }
+
+  .box {
+    position: absolute;
+    top: 4rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    background: url('../../../public/assets/brand/pattern_fish.webp'),
+      linear-gradient(var(--primary), #c8d9e9);
+    background-blend-mode: soft-light;
+
+    padding: 2rem 3.75rem;
+    border-radius: 2rem;
+    color: var(--white);
+
+    box-shadow: var(--box-shadow);
+    width: 25rem;
+    outline: 5px solid var(--white);
+
+    .close {
+      position: absolute;
+      right: 1.5rem;
+      top: 1rem;
+      :hover {
+        transform: scale(1.1);
+      }
+    }
+
+    h2 {
+      font-size: 2.5rem;
+      text-align: center;
+      margin-bottom: 2rem;
+      line-height: 1;
+      font-family: var(--brand-font);
+    }
+
+    p {
+      margin-top: -1.5rem;
+      font-family: var(--paragraph-font);
+      text-align: center;
+      font-size: 1rem;
+    }
+
+    .loginform {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+
+      .inputfield {
+        display: flex;
+        flex-direction: column;
+        font-family: var(--brand-font);
+        text-align: left;
+      }
+
+      .forgot {
+        margin-top: 0.4rem;
+        font-size: 0.95rem;
+        font-family: var(--secondary-font);
+        text-align: right;
+        text-decoration: underline;
+        color: var(--white);
+        &:hover {
+          text-decoration: none;
+        }
+      }
+
+      input {
+        border-radius: 1rem;
+        border: 3px solid #d3d3d3;
+        height: 3rem;
+        width: 17rem;
+
+        padding: 0 1rem;
+        font-size: 1.1rem;
+
+        font-family: var(--paragraph-font);
+
+        &:focus {
+          outline: none;
+          border: 3px solid var(--yellow);
+        }
+      }
+    }
+
+    .buttons {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      gap: 1rem;
+
+      margin-top: 2rem;
+
+      .yellow-btn {
+        background: var(--yellow-btn);
+        width: 100%;
+        border: 4px solid var(--white);
+        border-radius: 1rem;
+        padding: 0.5rem;
+        font-family: var(--brand-font);
+        font-size: 1.25rem;
+        box-shadow: var(--box-shadow);
+        transition: all 0.5s;
+        transition-timing-function: var(--bounce);
+        width: 17rem;
+
+        &:hover {
+          transform: scale(1.1);
+        }
+      }
+
+      .red-btn {
+        background: var(--red-btn);
+        color: var(--white);
+        width: 100%;
+        border: 4px solid var(--white);
+        border-radius: 1rem;
+        padding: 0.5rem;
+        font-family: var(--brand-font);
+        font-size: 1.25rem;
+        box-shadow: var(--box-shadow);
+        transition: all 0.5s;
+        transition-timing-function: var(--bounce);
+        width: 17rem;
+
+        &:hover {
+          transform: scale(1.1);
+        }
+      }
+    }
+  }
+}
+
+.hide {
+  display: none;
+}
+
+.topmargin {
+  margin-top: 1.75rem;
+}
