@@ -198,7 +198,7 @@ const Login = ({
               <p
                 id='uidnote'
                 className={`${
-                  userFocus && user && !validEmail
+                  userFocus && user && !validName
                     ? styles['instructions']
                     : styles['offscreen']
                 }`}
