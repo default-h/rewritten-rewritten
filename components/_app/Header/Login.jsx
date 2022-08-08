@@ -5,7 +5,7 @@ import exit from '../../../public/assets/icons/xmark-solid.svg';
 import Image from 'next/image';
 
 const USER_REGEX = /^[A-z][A-z0-9-_]{3,31}$/;
-const PASS_REGEX = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%]).{8,24}$/;
+const PASS_REGEX = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%]).{10,255}$/;
 const EMAIL_REGEX =
   /^(?:[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*|"(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21\x23-\x5b\x5d-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])*")@(?:(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?|\[(?:(?:(2(5[0-5]|[0-4][0-9])|1[0-9][0-9]|[1-9]?[0-9]))\.){3}(?:(2(5[0-5]|[0-4][0-9])|1[0-9][0-9]|[1-9]?[0-9])|[a-z0-9-]*[a-z0-9]:(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21-\x5a\x53-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])+)\])$/;
 
@@ -48,9 +48,8 @@ const Login = ({
     setRecoveryToggled((recoveryToggled = false));
   };
 
-  // <Break></Break>
-
   const userRef = useRef(null);
+  const emailRef = useRef(null);
   const errRef = useRef(null);
 
   const [user, setUser] = useState('');
@@ -83,7 +82,13 @@ const Login = ({
   }, [user]);
 
   useEffect(() => {
-    setValidName(EMAIL_REGEX.test(email));
+    if (emailRef.current != null) {
+      emailRef.current.focus();
+    }
+  }, []);
+
+  useEffect(() => {
+    setValidEmail(EMAIL_REGEX.test(email));
   }, [email]);
 
   useEffect(() => {
@@ -93,7 +98,7 @@ const Login = ({
 
   useEffect(() => {
     setErrMsg('');
-  }, [user, pass, matchPass]);
+  }, [user, email, pass, matchPass]);
 
   const handleSubmit = async e => {
     e.preventDefault();
@@ -194,7 +199,7 @@ const Login = ({
               <p
                 id='uidnote'
                 className={`${
-                  userFocus && user && !validName
+                  userFocus && user && !validEmail
                     ? styles['instructions']
                     : styles['offscreen']
                 }`}
@@ -209,7 +214,7 @@ const Login = ({
               <input
                 type='text'
                 id='email'
-                ref={userRef}
+                ref={emailRef}
                 onChange={e => setEmail(e.target.value)}
                 aria-invalid={validEmail ? 'false' : 'true'}
                 aria-describedby='uidnote'
@@ -218,6 +223,17 @@ const Login = ({
                 required
                 className={styles.email}
               />
+              <p
+                id='uidnote'
+                className={`${
+                  emailFocus && email && !validEmail
+                    ? styles['instructions']
+                    : styles['offscreen']
+                }`}
+              >
+                Enter a valid email address.
+                <br />
+              </p>
             </div>
             <div className={styles.inputfield}>
               <label htmlFor='password'>password</label>
@@ -243,8 +259,8 @@ const Login = ({
                     : styles['offscreen']
                 }`}
               >
-                8 to 24 characters. Must include uppercase and lowercase
-                letters, a number, and a special character.
+                Password must be at least 10 characters. Include uppercase and
+                lowercase letters, a number, and a special character.
                 <br />
                 Valid special characters:{' '}
                 <span aria-label='exclamation mark'>!</span>{' '}

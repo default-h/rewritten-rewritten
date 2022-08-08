@@ -126,7 +126,7 @@ const Header = () => {
 
       <button
         aria-label='menu'
-        aria-expanded='false'
+        aria-expanded={menu ? 'true' : 'false'}
         className={`${
           menu
             ? [styles['menu-btn'], styles.open].join(' ')
