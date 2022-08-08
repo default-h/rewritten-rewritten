@@ -24,7 +24,6 @@ const Welcome = () => {
             src='https://www.youtube-nocookie.com/embed/XRSFvwlEEP4'
             title='YouTube video player'
             frameBorder='0'
-            loading='lazy'
           ></iframe>
           <div>
             <h2>What&#39;s this game all about?</h2>{' '}
@@ -73,6 +72,7 @@ const Welcome = () => {
                 width={320}
                 height={246}
                 alt='Group of Toons'
+                priority
               />
             </div>
             <div className={styles.buttons}>

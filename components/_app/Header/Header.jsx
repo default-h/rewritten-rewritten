@@ -48,7 +48,7 @@ const Header = () => {
   return (
     <header className={styles.navbar}>
       <div className={styles.logo}>
-        <Image src={eyes} alt='Toontown eyes icon' />
+        <Image src={eyes} alt='Toontown eyes icon' priority />
       </div>
       <nav role='navigation'>
         <ul
@@ -118,7 +118,7 @@ const Header = () => {
               target='_blank'
               rel='noopener noreferrer'
             >
-              <Image src={play} alt='Play button' />
+              <Image src={play} alt='Play button' priority />
             </a>
           </div>
         </div>

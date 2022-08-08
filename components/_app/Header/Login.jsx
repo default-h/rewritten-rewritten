@@ -180,13 +180,12 @@ const Login = ({
           }`}
         >
           <h2>Register</h2>
-          <form className={styles.loginform}>
+          <form className={styles.loginform} autocomplete='off'>
             <div className={styles.inputfield}>
               <label htmlFor='username'>username</label>
               <input
                 type='text'
                 id='username'
-                autoComplete='off'
                 ref={userRef}
                 onChange={e => setUser(e.target.value)}
                 aria-invalid={validName ? 'false' : 'true'}
@@ -240,7 +239,7 @@ const Login = ({
               <input
                 type='password'
                 id='password'
-                autoComplete='off'
+                autocomplete='new-password'
                 onChange={e => setPass(e.target.value)}
                 value={pass}
                 aria-invalid={validPass ? 'false' : 'true'}
@@ -275,7 +274,6 @@ const Login = ({
               <input
                 id='confirm_pass'
                 type='password'
-                autoComplete='off'
                 onChange={e => setMatchPass(e.target.value)}
                 aria-invalid={validMatch ? 'false' : 'true'}
                 aria-describedby='confirmnote'

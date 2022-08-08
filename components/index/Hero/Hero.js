@@ -32,8 +32,8 @@ const Hero = () => {
             <Image
               className={styles.playbtn1}
               src={play}
-              loading='lazy'
-              alt='Play button'
+              priority
+              alt='Play button - link opens in a new tab.'
             />
           </a>
         </div>
