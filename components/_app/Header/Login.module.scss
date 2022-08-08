@@ -14,10 +14,11 @@
   width: 100vw;
   height: 100vh;
   background-color: rgba(10, 21, 45, 0.8);
-  z-index: 2;
+  z-index: 3;
   top: 0;
   left: 0;
   animation: fadein 0.33s ease-out;
+  overflow: hidden;
 
   @keyframes fadein {
     0% {
@@ -46,8 +47,9 @@
     color: var(--white);
 
     box-shadow: var(--box-shadow);
-    width: 25rem;
-    border: 5px solid var(--white);
+    width: 90%;
+    max-width: 25rem;
+    //border: 5px solid var(--white);
 
     .close {
       position: absolute;
@@ -64,6 +66,7 @@
       margin-bottom: 2rem;
       line-height: 1;
       font-family: var(--brand-font);
+      text-shadow: var(--text-shadow);
     }
 
     .paragraph {
@@ -84,6 +87,7 @@
         align-items: center;
         justify-content: center;
         font-family: var(--brand-font);
+        text-shadow: var(--text-shadow);
         text-align: left;
 
         .forgot {

@@ -4,10 +4,6 @@
 
 This project replicates the landing page of one of my favorite online games, Toontown Rewritten (TTR), using NextJS, ReactJS, JavaScript, and SCSS. To current players, this website has no affiliation with TTR, nor do the assets shown on the website belong to me. All links on the website will take you to the official website and social media belonging to TTR. The reasoning behind this project is for my benefit in learning web development and my love for the game! I built this to practice how to reproduce a deisgn, properly structure a website (and make it accessible!), use React Hooks, and fetch data from an API.
 
-### Why?
-
-The reasoning behind this project is for my own benefit in web development. This was created to practice on how to recreate a website, properly structure a website, use React Hooks, and fetch data from an API.
-
 ## Highlights
 
 - Incorporates mobile-first design
@@ -54,5 +50,5 @@ After completing the project, I walked away with confidence. In addition, the sk
 
 ## To-Do List
 
-- [ ] Finalize navigation bar
+- [x] Finalize navigation bar
 - [x] Implement form validation

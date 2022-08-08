@@ -47,6 +47,14 @@ const Header = () => {
 
   return (
     <header className={styles.navbar}>
+      <Login
+        showLogin={showLogin}
+        loginToggled={loginToggled}
+        showRegister={showRegister}
+        registerToggled={registerToggled}
+        showModal={showModal}
+        modalToggled={modalToggled}
+      />
       <div className={styles.logo}>
         <Image src={eyes} alt='Toontown eyes icon' priority />
       </div>
@@ -80,6 +88,8 @@ const Header = () => {
             <button
               onClick={() => {
                 forceRegister();
+                setMenu(!menu);
+                setNav(!nav);
               }}
             >
               sign up
@@ -103,14 +113,6 @@ const Header = () => {
               <br />
               <button onClick={forceLogin}>CLICK TO LOGIN</button>
             </p>
-            <Login
-              showLogin={showLogin}
-              loginToggled={loginToggled}
-              showRegister={showRegister}
-              registerToggled={registerToggled}
-              showModal={showModal}
-              modalToggled={modalToggled}
-            />
           </div>
           <div className={styles.right}>
             <a
