@@ -6,6 +6,8 @@
 
   line-height: 0;
   overflow: hidden;
+  // creates new stacking context to fix overflow on Safari
+  isolation: isolate;
 
   img {
     height: 100%;
