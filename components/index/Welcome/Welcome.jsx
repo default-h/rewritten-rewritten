@@ -27,22 +27,22 @@ const Welcome = () => {
           ></iframe>
           <div>
             <h2>What&#39;s this game all about?</h2>{' '}
-            <p>
+            <p className={styles.paragraph}>
               Toontown is a massively multiplayer online game built for kids,
               teens, and adults of all ages. Create your own Toon and join the
               never-ending battle against the &#34;Cogs&#34;, who want to turn
               Toontown into their latest business venture.
             </p>
             <br />
-            <p>
+            <p className={styles.paragraph}>
               The best part of all? <strong>Toontown is entirely FREE!</strong>
             </p>
           </div>
         </section>
         <section className={styles.right}>
           <div>
-            <h2>Where am I?</h2>
-            <p>
+            <h2 className={styles.heading}>Where am I?</h2>
+            <p className={styles.paragraph}>
               Before exploring this website, you should know this is a
               redesigned clone of{' '}
               <a
@@ -60,8 +60,8 @@ const Welcome = () => {
           </div>
 
           <div>
-            <h2>Just one more thing.</h2>
-            <p>
+            <h2 className={styles.heading}>Just one more thing.</h2>
+            <p className={styles.paragraph}>
               By visiting this website, you understand that this is NOT
               connected or affiliated with Toontown Rewritten. This was made
               just for fun by a fan!
@@ -80,7 +80,11 @@ const Welcome = () => {
                 SOUNDS GOOD!
               </button>
 
-              <a href='http://games.disney.com/' className={styles['red-btn']}>
+              <a
+                href='https://github.com/default-h/rewritten-rewritten'
+                className={styles['red-btn']}
+                aria-label='Repo page - link redirects you to GitHub repository'
+              >
                 I want to leave.
               </a>
             </div>

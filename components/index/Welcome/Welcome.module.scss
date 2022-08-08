@@ -84,7 +84,7 @@
         font-size: 3rem;
       }
     }
-    h2 {
+    .heading {
       //font-size: 1.75rem;
       font-size: 1.15rem;
       line-height: 1;
@@ -94,7 +94,7 @@
       font-family: var(--brand-font);
     }
 
-    p {
+    .paragraph {
       font-size: 0.75rem;
       font-family: var(--paragraph-font);
       span {
@@ -197,6 +197,19 @@
   }
 }
 
+@media (min-width: 640px) {
+  .container {
+    .box {
+      .heading {
+        font-size: 1.5rem;
+      }
+      .paragraph {
+        font-size: 0.9rem;
+      }
+    }
+  }
+}
+
 @media (min-width: 1024px) {
   .container {
     position: fixed;
@@ -259,7 +272,7 @@
         font-family: var(--brand-font);
       }
 
-      p {
+      .paragraph {
         font-size: 1rem;
         font-family: var(--paragraph-font);
         span {
