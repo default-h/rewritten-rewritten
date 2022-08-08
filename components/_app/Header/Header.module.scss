@@ -154,6 +154,8 @@
       justify-content: flex-start;
       align-items: center;
 
+      position: relative;
+
       .menu {
         display: flex;
         align-items: center;
@@ -215,17 +217,19 @@
         position: absolute;
         z-index: 1;
         right: 0;
-        top: 0;
+
+        align-items: center;
+        justify-content: center;
 
         .left {
           text-align: right;
-          margin-top: 1.125rem;
         }
 
         .right {
           transition: all 0.5s;
           transition-timing-function: var(--bounce);
           transform: scale(0.8);
+          margin-top: 3.75rem;
 
           &:hover {
             transform: rotate(6deg) scale(0.8);
@@ -265,7 +269,7 @@
       .play-container {
         .right {
           transform: scale(1);
-          margin-top: 1.125rem;
+          margin-top: 5.75rem;
 
           &:hover {
             transform: rotate(6deg) scale(1);
