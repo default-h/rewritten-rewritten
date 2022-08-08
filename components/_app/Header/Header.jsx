@@ -20,14 +20,12 @@ const Header = () => {
 
   const showLogin = () => {
     setLoginToggled(!loginToggled);
-    console.log(loginToggled);
   };
 
   const [registerToggled, setRegisterToggled] = useState(false);
 
   const showRegister = () => {
     setRegisterToggled(!registerToggled);
-    console.log(registerToggled);
   };
 
   const [modalToggled, setModalToggled] = useState(true);
@@ -52,7 +50,7 @@ const Header = () => {
       <div className={styles.logo}>
         <Image src={eyes} alt='Toontown eyes icon' />
       </div>
-      <nav>
+      <nav role='navigation'>
         <ul
           className={`${
             nav ? [styles.menu, styles.active].join(' ') : [styles.menu]
@@ -63,6 +61,7 @@ const Header = () => {
               href='https://toontownrewritten.com/news'
               target='_blank'
               rel='noopener noreferrer'
+              aria-label='Toontown news page - link opens in a new tab.'
             >
               news
             </a>
@@ -72,6 +71,7 @@ const Header = () => {
               href='https://www.toontownrewritten.com/taskforce/fieldoffices'
               target='_blank'
               rel='noopener noreferrer'
+              aria-label='Sellbot Task Force page - link opens in a new tab.'
             >
               sellbot task force
             </a>
@@ -90,6 +90,7 @@ const Header = () => {
               href='https://toontownrewritten.com/help'
               target='_blank'
               rel='noopener noreferrer'
+              aria-label='Help page - link opens in a new tab.'
             >
               help
             </a>
@@ -97,7 +98,7 @@ const Header = () => {
         </ul>
         <div className={styles['play-container']}>
           <div className={styles.left}>
-            <p>
+            <p className={styles.paragraph}>
               Returning Toon?
               <br />
               <button onClick={forceLogin}>CLICK TO LOGIN</button>
@@ -124,6 +125,8 @@ const Header = () => {
       </nav>
 
       <button
+        aria-label='menu'
+        aria-expanded='false'
         className={`${
           menu
             ? [styles['menu-btn'], styles.open].join(' ')

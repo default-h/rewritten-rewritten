@@ -9,7 +9,7 @@ const Footer = () => {
           href='https://www.facebook.com/ToontownRewritten'
           target='_blank'
           rel='noopener noreferrer'
-          aria-label='Facebook'
+          aria-label='Toontown Facebook page - link opens in a new tab.'
         >
           <svg
             xmlns='http://www.w3.org/2000/svg'
@@ -32,7 +32,7 @@ const Footer = () => {
           href='https://twitter.com/Toontown'
           target='_blank'
           rel='noopener noreferrer'
-          aria-label='Twitter'
+          aria-label='Toontown Twitter page - link opens in a new tab.'
         >
           <svg
             className={styles.twitter}
@@ -55,7 +55,7 @@ const Footer = () => {
           href='https://www.instagram.com/ttrewritten/'
           target='_blank'
           rel='noopener noreferrer'
-          aria-label='Instagram'
+          aria-label='Toontown Instagram page - link opens in a new tab.'
         >
           <svg
             xmlns='http://www.w3.org/2000/svg'
@@ -78,7 +78,7 @@ const Footer = () => {
           href='https://discord.gg/ToontownRewritten'
           target='_blank'
           rel='noopener noreferrer'
-          aria-label='Discord'
+          aria-label='Toontown Discord channel - link opens in a new tab.'
         >
           <svg
             xmlns='http://www.w3.org/2000/svg'
@@ -101,7 +101,7 @@ const Footer = () => {
           href='https://www.youtube.com/user/ToontownRewrittenTV'
           target='_blank'
           rel='noopener noreferrer'
-          aria-label='YouTube'
+          aria-label='Toontown YouTube page - link opens in a new tab.'
         >
           <svg
             xmlns='http://www.w3.org/2000/svg'
@@ -124,7 +124,7 @@ const Footer = () => {
           href='https://www.twitch.tv/toontown_tv'
           target='_blank'
           rel='noopener noreferrer'
-          aria-label='Twitch'
+          aria-label='Toontown Twitch page - link opens in a new tab.'
         >
           <svg
             xmlns='http://www.w3.org/2000/svg'
@@ -149,7 +149,7 @@ const Footer = () => {
           href='https://www.toontownrewritten.com/help/apply'
           target='_blank'
           rel='noopener noreferrer'
-          aria-label='Team Application page'
+          aria-label='Team Application page - link opens in a new tab.'
         >
           <p className={styles.link}>Join The Team</p>
         </a>
@@ -157,7 +157,7 @@ const Footer = () => {
           href='https://www.toontownrewritten.com/toonhq/partners'
           target='_blank'
           rel='noopener noreferrer'
-          aria-label='Partners page'
+          aria-label='Partners page - link opens in a new tab.'
         >
           <p className={styles.link}>Partners</p>
         </a>
@@ -165,7 +165,7 @@ const Footer = () => {
           href='https://www.toontownrewritten.com/play/terms-of-service'
           target='_blank'
           rel='noopener noreferrer'
-          aria-label='Terms of Service'
+          aria-label='Terms of Service - link opens in a new tab.'
         >
           <p className={styles.link}>Terms Of Service</p>
         </a>
@@ -173,7 +173,7 @@ const Footer = () => {
           href='https://backstage.toontownrewritten.com/Press-Center-05f3f4abe44e4fd9a369aedb3300cb76'
           target='_blank'
           rel='noopener noreferrer'
-          aria-label='Press Center page'
+          aria-label='Press Center page - link opens in a new tab.'
         >
           <p className={styles.link}>Press</p>
         </a>
@@ -181,7 +181,7 @@ const Footer = () => {
           href='https://status.toontownrewritten.com/'
           target='_blank'
           rel='noopener noreferrer'
-          aria-label='Server Status'
+          aria-label='Server Status - link opens in a new tab.'
         >
           <p className={styles.link}>Server Status</p>
         </a>
@@ -189,7 +189,7 @@ const Footer = () => {
           href='https://www.toontownrewritten.com/help'
           target='_blank'
           rel='noopener noreferrer'
-          aria-label='Help page'
+          aria-label='Help page - link opens in a new tab.'
         >
           <p className={styles.link}>Help</p>
         </a>

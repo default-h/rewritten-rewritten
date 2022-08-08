@@ -11,7 +11,7 @@ The reasoning behind this project is for my own benefit in web development. This
 ## Highlights
 
 - Incorporates mobile-first design
-- Follows web accessibility standards (WCAG)
+- Follows web accessibility standards (WCAG + aria)
 - Responsive across different devices
 - Consumes data from a third-party Web API
   - Data is displayed as blogpost previews. Each preview contains it's unique title and image. Clicking on the preview will open its associated blogpost in a new tab.
@@ -32,6 +32,8 @@ The reasoning behind this project is for my own benefit in web development. This
 - "Latest News" now fetches the five most recent blog posts (originally three) with subtle styling differences
 - Color scheme has changed to improve color contrast ratio for WCAG (Level AAA)
 - Mobile banner features up-to-date branding
+- Registration form now validates in real time rather than validating after a submission attempt
+  - Additionally, users can now see requirements when focused on an input
 
 ### Outcomes
 
@@ -53,4 +55,4 @@ After completing the project, I walked away with confidence. In addition, the sk
 ## To-Do List
 
 - [ ] Finalize navigation bar
-- [ ] Implement form validation
+- [x] Implement form validation

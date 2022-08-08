@@ -1,8 +1,13 @@
-import React, { useEffect, useState } from 'react';
+import { useRef, useState, useEffect } from 'react';
 
 import styles from './Login.module.scss';
 import exit from '../../../public/assets/icons/xmark-solid.svg';
 import Image from 'next/image';
+
+const USER_REGEX = /^[A-z][A-z0-9-_]{3,31}$/;
+const PASS_REGEX = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%]).{8,24}$/;
+const EMAIL_REGEX =
+  /^(?:[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*|"(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21\x23-\x5b\x5d-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])*")@(?:(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?|\[(?:(?:(2(5[0-5]|[0-4][0-9])|1[0-9][0-9]|[1-9]?[0-9]))\.){3}(?:(2(5[0-5]|[0-4][0-9])|1[0-9][0-9]|[1-9]?[0-9])|[a-z0-9-]*[a-z0-9]:(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21-\x5a\x53-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])+)\])$/;
 
 const Login = ({
   showLogin,
@@ -43,6 +48,65 @@ const Login = ({
     setRecoveryToggled((recoveryToggled = false));
   };
 
+  // <Break></Break>
+
+  const userRef = useRef(null);
+  const errRef = useRef(null);
+
+  const [user, setUser] = useState('');
+  const [validName, setValidName] = useState(false);
+  const [userFocus, setUserFocus] = useState(false);
+
+  const [email, setEmail] = useState('');
+  const [validEmail, setValidEmail] = useState(false);
+  const [emailFocus, setEmailFocus] = useState(false);
+
+  const [pass, setPass] = useState('');
+  const [validPass, setValidPass] = useState(false);
+  const [passFocus, setPassFocus] = useState(false);
+
+  const [matchPass, setMatchPass] = useState('');
+  const [validMatch, setValidMatch] = useState(false);
+  const [matchFocus, setMatchFocus] = useState(false);
+
+  const [errMsg, setErrMsg] = useState('');
+  const [success, setSuccess] = useState(false);
+
+  useEffect(() => {
+    if (userRef.current != null) {
+      userRef.current.focus();
+    }
+  }, []);
+
+  useEffect(() => {
+    setValidName(USER_REGEX.test(user));
+  }, [user]);
+
+  useEffect(() => {
+    setValidName(EMAIL_REGEX.test(email));
+  }, [email]);
+
+  useEffect(() => {
+    setValidPass(PASS_REGEX.test(pass));
+    setValidMatch(pass === matchPass);
+  }, [pass, matchPass]);
+
+  useEffect(() => {
+    setErrMsg('');
+  }, [user, pass, matchPass]);
+
+  const handleSubmit = async e => {
+    e.preventDefault();
+
+    const checkUser = USER_REGEX.test(user);
+    const checkPass = PASS_REGEX.test(pass);
+    const checkEmail = EMAIL_REGEX.test(email);
+    if (!checkUser || !checkPass || !checkEmail) {
+      setErrMsg('Inputted entries are not valid. Try again.');
+      return;
+    }
+  };
+
   return (
     <dialog className={`${loginToggled ? styles['container'] : styles.hide}`}>
       <div className={styles.box}>
@@ -52,6 +116,7 @@ const Login = ({
             resetModal();
           }}
           className={styles.close}
+          aria-label='Close'
         >
           <Image
             className={styles.closebtn}
@@ -113,19 +178,106 @@ const Login = ({
           <form className={styles.loginform}>
             <div className={styles.inputfield}>
               <label htmlFor='username'>username</label>
-              <input type='text' className={styles.username} />
+              <input
+                type='text'
+                id='username'
+                autoComplete='off'
+                ref={userRef}
+                onChange={e => setUser(e.target.value)}
+                aria-invalid={validName ? 'false' : 'true'}
+                aria-describedby='uidnote'
+                onFocus={() => setUserFocus(true)}
+                onBlur={() => setUserFocus(false)}
+                required
+                className={styles.username}
+              />
+              <p
+                id='uidnote'
+                className={`${
+                  userFocus && user && !validName
+                    ? styles['instructions']
+                    : styles['offscreen']
+                }`}
+              >
+                4 to 32 characters. Must begin with a letter.
+                <br />
+                Letters, numbers, underscores, and hyphens are allowed.
+              </p>
             </div>
             <div className={styles.inputfield}>
               <label htmlFor='username'>e-mail</label>
-              <input type='text' className={styles.email} />
+              <input
+                type='text'
+                id='email'
+                ref={userRef}
+                onChange={e => setEmail(e.target.value)}
+                aria-invalid={validEmail ? 'false' : 'true'}
+                aria-describedby='uidnote'
+                onFocus={() => setEmailFocus(true)}
+                onBlur={() => setEmailFocus(false)}
+                required
+                className={styles.email}
+              />
             </div>
             <div className={styles.inputfield}>
               <label htmlFor='password'>password</label>
-              <input type='password' className={styles.password} />
+              <input
+                type='password'
+                id='password'
+                autoComplete='off'
+                onChange={e => setPass(e.target.value)}
+                value={pass}
+                aria-invalid={validPass ? 'false' : 'true'}
+                aria-describedby='passnote'
+                onFocus={() => setPassFocus(true)}
+                onBlur={() => setPassFocus(false)}
+                required
+                className={styles.password}
+              />
+
+              <p
+                id='passnote'
+                className={`${
+                  passFocus && !validPass
+                    ? styles['instructions']
+                    : styles['offscreen']
+                }`}
+              >
+                8 to 24 characters. Must include uppercase and lowercase
+                letters, a number, and a special character.
+                <br />
+                Valid special characters:{' '}
+                <span aria-label='exclamation mark'>!</span>{' '}
+                <span aria-label='at symbol'>@</span>{' '}
+                <span aria-label='hashtag'>#</span>{' '}
+                <span aria-label='dollar sign'>$</span>{' '}
+                <span aria-label='percent'>%</span>
+              </p>
             </div>
             <div className={styles.inputfield}>
               <label htmlFor='password'>repeat password</label>
-              <input type='password' className={styles.password} />
+              <input
+                id='confirm_pass'
+                type='password'
+                autoComplete='off'
+                onChange={e => setMatchPass(e.target.value)}
+                aria-invalid={validMatch ? 'false' : 'true'}
+                aria-describedby='confirmnote'
+                onFocus={() => setMatchFocus(true)}
+                onBlur={() => setMatchFocus(false)}
+                required
+                className={styles.password}
+              />
+              <p
+                id='confirmnote'
+                className={`${
+                  matchFocus && !validMatch
+                    ? styles['instructions']
+                    : styles['offscreen']
+                }`}
+              >
+                Passwords must match.
+              </p>
               <span className={styles.forgot}>Privacy Policy</span>
             </div>
             <section className={styles.buttons}>
@@ -201,7 +353,7 @@ const Login = ({
           }`}
         >
           <h2>Forgot Password</h2>
-          <p>
+          <p className={styles.paragraph}>
             Don&#39;t sweat it. We&#39;d rather have you forget a complex
             password than remember an easy one!
           </p>{' '}
@@ -239,7 +391,7 @@ const Login = ({
           }`}
         >
           <h2>Forgot Username</h2>
-          <p>
+          <p className={styles.paragraph}>
             Don&#39;t worry, it happens to the best of us! As long as you
             remember your email, we&#39;ll do the searching.
           </p>{' '}
@@ -276,7 +428,7 @@ const Login = ({
           }`}
         >
           <h2>Resend Email</h2>
-          <p>
+          <p className={styles.paragraph}>
             Signed up but didn&#39;t get your verification email? Give us an
             address and we&#39;ll send another.
           </p>{' '}
