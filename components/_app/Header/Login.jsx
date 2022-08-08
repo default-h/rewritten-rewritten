@@ -156,22 +156,22 @@ const Login = ({
                 Having Trouble?
               </button>
             </div>
+            <section className={styles.buttons}>
+              <button type='button' className={styles['yellow-btn']}>
+                Sign In
+              </button>
+              <button
+                className={styles['red-btn']}
+                type='button'
+                onClick={() => {
+                  showModal();
+                  showRegister();
+                }}
+              >
+                Register For Free
+              </button>
+            </section>
           </form>
-          <section className={styles.buttons}>
-            <button type='button' className={styles['yellow-btn']}>
-              Sign In
-            </button>
-            <button
-              className={styles['red-btn']}
-              type='button'
-              onClick={() => {
-                showModal();
-                showRegister();
-              }}
-            >
-              Register For Free
-            </button>
-          </section>
         </div>
 
         <div
