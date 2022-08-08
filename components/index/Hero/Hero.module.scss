@@ -28,6 +28,7 @@
 
         transition: all 0.5s;
         transition-timing-function: var(--bounce);
+        z-index: 1;
 
         &:hover {
           filter: brightness(1.25);
