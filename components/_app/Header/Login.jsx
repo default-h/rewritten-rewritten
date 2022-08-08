@@ -180,7 +180,7 @@ const Login = ({
           }`}
         >
           <h2>Register</h2>
-          <form className={styles.loginform} autocomplete='off'>
+          <form className={styles.loginform} autoComplete='off'>
             <div className={styles.inputfield}>
               <label htmlFor='username'>username</label>
               <input
@@ -239,7 +239,7 @@ const Login = ({
               <input
                 type='password'
                 id='password'
-                autocomplete='new-password'
+                autoComplete='new-password'
                 onChange={e => setPass(e.target.value)}
                 value={pass}
                 aria-invalid={validPass ? 'false' : 'true'}
