@@ -196,7 +196,7 @@ const Footer = () => {
       </div>
       <p className={styles.disclaimer}>
         This website is not affiliated with nor officially made by Toontown
-        Rewritten. This is purely a clone of their website - created by a fan
+        Rewritten. This is purely a rebuild of their website - created by a fan
         for the purpose of practicing web development. All used assets belong to
         Toontown Rewritten.
       </p>

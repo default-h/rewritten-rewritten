@@ -43,8 +43,8 @@ const Welcome = () => {
           <div>
             <h2 className={styles.heading}>Where am I?</h2>
             <p className={styles.paragraph}>
-              Before exploring this website, you should know this is a
-              redesigned clone of{' '}
+              Before exploring this website, you should know this is a redesign
+              of{' '}
               <a
                 href='https://www.toontownrewritten.com/'
                 target='_blank'
