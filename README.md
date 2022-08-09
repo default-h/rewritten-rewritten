@@ -1,5 +1,10 @@
 # Toontown Rewritten Landing Clone 👀
 
+![Screenshot of Website](https://i.imgur.com/ucPzHl4.jpg)
+
+Live Demo: https://rewritten-rewritten.vercel.app/
+Video Demo: https://www.youtube.com/watch?v=02g3_AjNB30
+
 ## Overview
 
 This project replicates the landing page of one of my favorite online games, Toontown Rewritten (TTR), using NextJS, ReactJS, JavaScript, and SCSS. To current players, this website has no affiliation with TTR, nor do the assets shown on the website belong to me. All links on the website will take you to the official website and social media belonging to TTR. The reasoning behind this project is for my benefit in learning web development and my love for the game! I built this to practice how to reproduce a deisgn, properly structure a website (and make it accessible!), use React Hooks, and fetch data from an API.
