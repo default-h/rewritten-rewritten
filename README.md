@@ -2,8 +2,10 @@
 
 ![Screenshot of Website](https://i.imgur.com/ucPzHl4.jpg)
 
+<p align="center">
 Live Demo: https://rewritten-rewritten.vercel.app/
 Video Demo: https://www.youtube.com/watch?v=02g3_AjNB30
+</p>
 
 ## Overview
 
