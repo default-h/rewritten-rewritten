@@ -4,6 +4,9 @@ import styles from './Login.module.scss';
 import exit from '../../../public/assets/icons/xmark-solid.svg';
 import Image from 'next/image';
 
+import valid from '../../../public/assets/icons/green-check.svg';
+import invalid from '../../../public/assets/icons/red-xmark.svg';
+
 const USER_REGEX = /^[A-z][A-z0-9-_]{3,31}$/;
 const PASS_REGEX = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%]).{10,255}$/;
 const EMAIL_REGEX =
@@ -53,7 +56,7 @@ const Login = ({
   const errRef = useRef(null);
 
   const [user, setUser] = useState('');
-  const [validName, setValidName] = useState(false);
+  const [validUser, setValidUser] = useState(false);
   const [userFocus, setUserFocus] = useState(false);
 
   const [email, setEmail] = useState('');
@@ -68,9 +71,6 @@ const Login = ({
   const [validMatch, setValidMatch] = useState(false);
   const [matchFocus, setMatchFocus] = useState(false);
 
-  const [errMsg, setErrMsg] = useState('');
-  const [success, setSuccess] = useState(false);
-
   useEffect(() => {
     if (userRef.current != null) {
       userRef.current.focus();
@@ -78,7 +78,7 @@ const Login = ({
   }, []);
 
   useEffect(() => {
-    setValidName(USER_REGEX.test(user));
+    setValidUser(USER_REGEX.test(user));
   }, [user]);
 
   useEffect(() => {
@@ -95,22 +95,6 @@ const Login = ({
     setValidPass(PASS_REGEX.test(pass));
     setValidMatch(pass === matchPass);
   }, [pass, matchPass]);
-
-  useEffect(() => {
-    setErrMsg('');
-  }, [user, email, pass, matchPass]);
-
-  const handleSubmit = async e => {
-    e.preventDefault();
-
-    const checkUser = USER_REGEX.test(user);
-    const checkPass = PASS_REGEX.test(pass);
-    const checkEmail = EMAIL_REGEX.test(email);
-    if (!checkUser || !checkPass || !checkEmail) {
-      setErrMsg('Inputted entries are not valid. Try again.');
-      return;
-    }
-  };
 
   return (
     <dialog className={`${loginToggled ? styles['container'] : styles.hide}`}>
@@ -182,34 +166,62 @@ const Login = ({
           <h2>Register</h2>
           <form className={styles.loginform} autoComplete='off'>
             <div className={styles.inputfield}>
-              <label htmlFor='username'>username</label>
+              <label htmlFor='username'>
+                username
+                <div
+                  className={`${validUser ? styles['valid'] : styles['hide']}`}
+                >
+                  <Image src={valid}></Image>
+                </div>
+                <div
+                  className={`${
+                    validUser || !user ? styles['hide'] : styles['invalid']
+                  }`}
+                >
+                  <Image src={invalid}></Image>
+                </div>
+              </label>
               <input
                 type='text'
                 id='username'
                 ref={userRef}
                 onChange={e => setUser(e.target.value)}
-                aria-invalid={validName ? 'false' : 'true'}
+                aria-invalid={validUser ? 'false' : 'true'}
                 aria-describedby='uidnote'
                 onFocus={() => setUserFocus(true)}
                 onBlur={() => setUserFocus(false)}
                 required
                 className={styles.username}
               />
-              <p
+              <ul
                 id='uidnote'
                 className={`${
-                  userFocus && user && !validName
+                  userFocus && user && !validUser
                     ? styles['instructions']
                     : styles['offscreen']
                 }`}
               >
-                4 to 32 characters. Must begin with a letter.
-                <br />
-                Letters, numbers, underscores, and hyphens are allowed.
-              </p>
+                <li>4 to 32 characters. Must start with a letter.</li>
+
+                <li>Letters, numbers, underscores, and hyphens are allowed</li>
+              </ul>
             </div>
             <div className={styles.inputfield}>
-              <label htmlFor='username'>e-mail</label>
+              <label htmlFor='username'>
+                e-mail
+                <div
+                  className={`${validEmail ? styles['valid'] : styles['hide']}`}
+                >
+                  <Image src={valid}></Image>
+                </div>
+                <div
+                  className={`${
+                    validEmail || !email ? styles['hide'] : styles['invalid']
+                  }`}
+                >
+                  <Image src={invalid}></Image>
+                </div>
+              </label>
               <input
                 type='text'
                 id='email'
@@ -235,7 +247,21 @@ const Login = ({
               </p>
             </div>
             <div className={styles.inputfield}>
-              <label htmlFor='password'>password</label>
+              <label htmlFor='password'>
+                password{' '}
+                <div
+                  className={`${validPass ? styles['valid'] : styles['hide']}`}
+                >
+                  <Image src={valid}></Image>
+                </div>
+                <div
+                  className={`${
+                    validPass || !pass ? styles['hide'] : styles['invalid']
+                  }`}
+                >
+                  <Image src={invalid}></Image>
+                </div>
+              </label>
               <input
                 type='password'
                 id='password'
@@ -250,7 +276,7 @@ const Login = ({
                 className={styles.password}
               />
 
-              <p
+              <ul
                 id='passnote'
                 className={`${
                   passFocus && !validPass
@@ -258,19 +284,41 @@ const Login = ({
                     : styles['offscreen']
                 }`}
               >
-                Password must be at least 10 characters. Include uppercase and
-                lowercase letters, a number, and a special character.
-                <br />
-                Valid special characters:{' '}
-                <span aria-label='exclamation mark'>!</span>{' '}
-                <span aria-label='at symbol'>@</span>{' '}
-                <span aria-label='hashtag'>#</span>{' '}
-                <span aria-label='dollar sign'>$</span>{' '}
-                <span aria-label='percent'>%</span>
-              </p>
+                <li>
+                  Password must be at least 10 characters. Include uppercase and
+                  lowercase letters, a number, and a special character.
+                </li>
+
+                <li>
+                  Valid special characters:{' '}
+                  <span aria-label='exclamation mark'>!</span>{' '}
+                  <span aria-label='at symbol'>@</span>{' '}
+                  <span aria-label='hashtag'>#</span>{' '}
+                  <span aria-label='dollar sign'>$</span>{' '}
+                  <span aria-label='percent'>%</span>
+                </li>
+              </ul>
             </div>
             <div className={styles.inputfield}>
-              <label htmlFor='password'>repeat password</label>
+              <label htmlFor='password'>
+                repeat password
+                <div
+                  className={`${
+                    validMatch && matchPass ? styles['valid'] : styles['hide']
+                  }`}
+                >
+                  <Image src={valid}></Image>
+                </div>
+                <div
+                  className={`${
+                    validMatch || !matchPass
+                      ? styles['hide']
+                      : styles['invalid']
+                  }`}
+                >
+                  <Image src={invalid}></Image>
+                </div>
+              </label>
               <input
                 id='confirm_pass'
                 type='password'

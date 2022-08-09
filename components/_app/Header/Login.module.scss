@@ -107,6 +107,7 @@
           width: 100%;
           margin-left: 1rem;
           font-size: 1.1rem;
+          position: relative;
         }
       }
 
@@ -176,6 +177,14 @@
   }
 }
 
+.valid,
+.invalid {
+  position: absolute;
+  bottom: -46px;
+  right: 20px;
+  width: 1.1rem;
+}
+
 .hide {
   display: none;
 }
@@ -199,7 +208,7 @@
 }
 
 .instructions {
-  font-size: 16px;
+  font-size: 14px;
 
   color: var(--white);
 
@@ -211,4 +220,7 @@
   font-family: var(--paragraph-font);
 
   text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
 }
