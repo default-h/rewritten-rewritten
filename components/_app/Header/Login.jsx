@@ -187,14 +187,14 @@ const Login = ({
                 ref={userRef}
                 onChange={e => setUser(e.target.value)}
                 aria-invalid={validUser ? 'false' : 'true'}
-                aria-describedby='uidnote'
+                aria-describedby='usernote'
                 onFocus={() => setUserFocus(true)}
                 onBlur={() => setUserFocus(false)}
                 required
                 className={styles.username}
               />
               <ul
-                id='uidnote'
+                id='usernote'
                 className={`${
                   userFocus && user && !validUser
                     ? styles['instructions']
@@ -228,14 +228,14 @@ const Login = ({
                 ref={emailRef}
                 onChange={e => setEmail(e.target.value)}
                 aria-invalid={validEmail ? 'false' : 'true'}
-                aria-describedby='uidnote'
+                aria-describedby='emailnote'
                 onFocus={() => setEmailFocus(true)}
                 onBlur={() => setEmailFocus(false)}
                 required
                 className={styles.email}
               />
               <p
-                id='uidnote'
+                id='emailnote'
                 className={`${
                   emailFocus && email && !validEmail
                     ? styles['instructions']
