@@ -1,6 +1,12 @@
-@import url('https://fonts.googleapis.com/css2?family=Bowlby+One+SC&display=swap');
+@font-face {
+  font-family: 'Bowlby One SC';
+  src: url('../public/fonts/BowlbyOneSC-Regular.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'Anton';
+  src: url('../public/fonts/Anton-Regular.woff2') format('woff2');
+}
 
-@import url('https://fonts.googleapis.com/css2?family=Anton&display=swap');
 :root {
   --black: #212427;
   --white: #fdfdfd;
