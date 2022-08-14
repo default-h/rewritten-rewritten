@@ -56,7 +56,11 @@ const Header = () => {
         modalToggled={modalToggled}
       />
       <div className={styles.logo}>
-        <Image src={eyes} alt='Toontown eyes icon' priority />
+        <Link href='/'>
+          <a>
+            <Image src={eyes} alt='Toontown eyes icon' priority />
+          </a>
+        </Link>
       </div>
       <nav role='navigation'>
         <ul
