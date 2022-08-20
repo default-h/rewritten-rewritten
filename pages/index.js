@@ -9,7 +9,7 @@ import About from '../components/index/About/About';
 import Misc from '../components/index/Misc/Misc';
 
 // fetches the 5 most recent news posts to be passed as props
-export const getStaticProps = async () => {
+export const getServerSideProps = async () => {
   const res = await fetch('https://www.toontownrewritten.com/api/news/list');
   const data = await res.json();
   const recentNews = data.slice(0, 5);
