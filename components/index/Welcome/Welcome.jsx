@@ -64,7 +64,14 @@ const Welcome = () => {
             <p className={styles.paragraph}>
               By visiting this website, you understand that this is NOT
               connected or affiliated with Toontown Rewritten. This was made
-              just for fun by a fan!
+              just for fun by a fan!{' '}
+              <a
+                href='https://github.com/default-h/rewritten-rewritten'
+                target='_blank'
+                rel='noopener noreferrer'
+              >
+                <span>Click here to go to the GitHub repository.</span>
+              </a>
             </p>
             <div>
               <Image
