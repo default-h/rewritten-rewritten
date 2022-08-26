@@ -10,7 +10,7 @@ Video Demo: https://www.youtube.com/watch?v=02g3_AjNB30
 
 ## Overview
 
-The "Rewriting Toontown Rewritten" project rebuilds the landing page of one of my favorite online games, Toontown Rewritten (TTR), using NextJS, ReactJS, JavaScript, and SCSS. This project was built from scratch using my code to rebuild and restructure TTR's website while fixing the actual website's bugs and adding new features (see "Improvements / Changes"). The reasoning behind this project is for my benefit in learning web development and my love for the game! I built this to practice how to reproduce a design, properly structure a website (and make it accessible!), use React Hooks, and fetch data from an API.
+The "Rewriting Toontown Rewritten" project rebuilds the landing page of one of my favorite online games, Toontown Rewritten (TTR), using Next.js, React, JavaScript, and SCSS. This project was built from scratch using my code to rebuild and restructure TTR's website while fixing the actual website's bugs and adding new features (see "Improvements / Changes"). The reasoning behind this project is for my benefit in learning web development and my love for the game! I built this to practice how to reproduce a design, properly structure a website (and make it accessible!), use React Hooks, and fetch data from an API.
 
 To current players, this website has no affiliation with TTR, nor do the assets shown on the website belong to me. All links on the website will take you to the official website and social media belonging to TTR.
 
