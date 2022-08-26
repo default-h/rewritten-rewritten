@@ -49,6 +49,7 @@ const Welcome = () => {
                 href='https://www.toontownrewritten.com/'
                 target='_blank'
                 rel='noopener noreferrer'
+                aria-label='Official Toontown Rewritten website - link opens in a new tab'
               >
                 <span>Toontown Rewritten,</span>
               </a>{' '}
@@ -69,6 +70,7 @@ const Welcome = () => {
                 href='https://github.com/default-h/rewritten-rewritten'
                 target='_blank'
                 rel='noopener noreferrer'
+                aria-label='Repo page - link opens in a new tab'
               >
                 <span>Click here to go to the GitHub repository.</span>
               </a>
@@ -90,7 +92,7 @@ const Welcome = () => {
               <a
                 href='https://github.com/default-h/rewritten-rewritten'
                 className={styles['red-btn']}
-                aria-label='Repo page - link redirects you to GitHub repository'
+                aria-label='Repo page - link opens in a new tab'
               >
                 I want to leave.
               </a>

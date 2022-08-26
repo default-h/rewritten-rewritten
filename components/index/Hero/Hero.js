@@ -28,6 +28,7 @@ const Hero = () => {
             href='https://www.toontownrewritten.com/play'
             target='_blank'
             rel='noopener noreferrer'
+            aria-label='Tootown Rewritten play page - link opens in a new tab'
           >
             <Image
               className={styles.playbtn1}
