@@ -163,7 +163,7 @@
         flex-direction: row;
         border: none;
         background: none;
-        gap: 4.5rem;
+        gap: 4rem;
         margin-left: 4rem;
         position: relative;
         z-index: 1;
@@ -260,6 +260,7 @@
   .navbar {
     nav {
       .menu {
+        gap: 4.5rem;
         li,
         button {
           font-size: 1.3rem;
