@@ -1,14 +1,11 @@
 import Head from 'next/head';
-import Image from 'next/image';
-import styles from '../styles/Home.module.scss';
-
 import Welcome from '../components/index/Welcome/Welcome';
 import Hero from '../components/index/Hero/Hero';
 import News from '../components/index/News/News';
 import About from '../components/index/About/About';
 import Misc from '../components/index/Misc/Misc';
 
-// fetches the 5 most recent news posts to be passed as props
+// fetches the 5 most recent news posts
 export const getServerSideProps = async () => {
   const res = await fetch('https://www.toontownrewritten.com/api/news/list');
   const data = await res.json();
@@ -34,7 +31,7 @@ export default function Home({ recentNews }) {
         <link rel='icon' href='/favicon.ico' />
       </Head>
 
-      <main className={styles.main}>
+      <main>
         <Welcome />
         <Hero />
         <News recentNews={recentNews} />

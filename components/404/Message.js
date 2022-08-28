@@ -2,7 +2,6 @@ import React from 'react';
 import styles from './Message.module.scss';
 import Link from 'next/link';
 import Image from 'next/image';
-
 import bear from '../../public/assets/brand/bear_confused.webp';
 
 const Message = () => {

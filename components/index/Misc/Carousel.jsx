@@ -1,14 +1,13 @@
 import React from 'react';
 import Image from 'next/image';
 import Slider from 'react-slick';
-
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import styles from './Carousel.module.scss';
-
 import code from '../../../public/assets/img/E4Rr0cgXwAM4lfW.jpg';
 import giveaway from '../../../public/assets/img/giveaway.webp';
 import team from '../../../public/assets/img/SketchArtist_ad.jpg';
+
 export default function Carousel() {
   var settings = {
     dots: true,
@@ -21,6 +20,7 @@ export default function Carousel() {
     arrows: true,
     easing: 'easeOut',
   };
+
   return (
     <div className={styles.container}>
       <Slider {...settings}>

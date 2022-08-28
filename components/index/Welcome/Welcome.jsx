@@ -1,8 +1,6 @@
 import React, { useState } from 'react';
 import styles from './Welcome.module.scss';
 import group from '../../../public/assets/brand/group_1.webp';
-import exit from '../../../public/assets/icons/xmark-solid.svg';
-
 import Image from 'next/image';
 
 const Welcome = () => {

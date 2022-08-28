@@ -1,15 +1,9 @@
-import React, { useEffect, useState } from 'react';
-
+import React, { useState } from 'react';
 import styles from '../Header/Header.module.scss';
-
 import eyes from '../../../public/assets/img/logo_eyes.webp';
-
 import Image from 'next/image';
 import Link from 'next/link';
-import hamburger from '../../../public/assets/icons/bars-solid.svg';
-
 import play from '../../../public/assets/img/buttons_play.webp';
-
 import Login from './Login';
 
 const Header = () => {

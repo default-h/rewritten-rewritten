@@ -1,9 +1,7 @@
 import React from 'react';
 import Image from 'next/image';
-
 import styles from './Misc.module.scss';
 import poll from '../../../public/assets/img/poll_title.webp';
-
 import Carousel from './Carousel';
 
 const Misc = () => {

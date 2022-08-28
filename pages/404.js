@@ -1,7 +1,4 @@
 import Head from 'next/head';
-import Image from 'next/image';
-import Link from 'next/link';
-
 import Message from '../components/404/Message';
 
 export default function fourzerofour() {

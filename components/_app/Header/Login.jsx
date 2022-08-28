@@ -1,9 +1,7 @@
 import { useRef, useState, useEffect } from 'react';
-
 import styles from './Login.module.scss';
 import exit from '../../../public/assets/icons/xmark-solid.svg';
 import Image from 'next/image';
-
 import valid from '../../../public/assets/icons/green-check.svg';
 import invalid from '../../../public/assets/icons/red-xmark.svg';
 
@@ -53,7 +51,6 @@ const Login = ({
 
   const userRef = useRef(null);
   const emailRef = useRef(null);
-  const errRef = useRef(null);
 
   const [user, setUser] = useState('');
   const [validUser, setValidUser] = useState(false);

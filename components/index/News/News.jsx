@@ -1,10 +1,6 @@
 import React from 'react';
 import Image from 'next/image';
-
 import styles from './News.module.scss';
-
-import newsimage from '../../../public/assets/img/test_news.webp';
-
 import latestnews from '../../../public/assets/img/newsblocks_title.webp';
 
 const News = ({ recentNews }) => {
