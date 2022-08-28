@@ -1,6 +1,8 @@
 # Rewriting Toontown Rewritten's Landing Page 👀
 
 ![Screenshot of Website](https://i.imgur.com/ucPzHl4.jpg)
+![GIF #1 of Website](https://media.giphy.com/media/6j0B8GjAYQhHsmJkP1/giphy.gif)
+![GIF #2 of Website](https://media.giphy.com/media/rrXA3nFGCs1DCA7JGW/giphy.gif)
 
 <p align="center">
 Live Site: https://rewritten-rewritten.vercel.app/
