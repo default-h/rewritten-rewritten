@@ -10,23 +10,20 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-
     margin-top: 2rem;
     margin-bottom: 2rem;
-
     padding: 2rem 1rem;
     width: 95vw;
-
     box-shadow: var(--box-shadow);
-
     gap: 1rem;
     text-align: center;
-
     background-color: var(--white);
     border-radius: 2rem;
+
     h1 {
       font-family: var(--brand-font);
     }
+
     p {
       font-family: var(--paragraph-font);
       margin-bottom: 2rem;

@@ -4,7 +4,6 @@
   bottom: 0;
   margin: auto 0;
   transform: translateX(-32px);
-
   filter: drop-shadow(var(--text-shadow));
 }
 
@@ -15,22 +14,18 @@
 .navbar {
   width: 100vw;
   border-top: 3px solid var(--primary-dark);
-
   height: 70px;
   display: flex;
   justify-content: center;
   align-items: center;
   padding: 2.25rem;
-
   margin-left: auto;
   margin-right: auto;
-
   background-color: var(--primary);
 
   nav {
     max-width: 83rem;
     width: 100%;
-    //position: relative;
     display: flex;
     justify-content: flex-start;
     align-items: center;
@@ -54,25 +49,22 @@
   right: 0;
   width: 100vw;
   height: 100vh;
-
   background: url('../../../public/assets/brand/pattern_fish.webp'),
     linear-gradient(var(--primary-dark), rgb(29, 106, 136));
   background-blend-mode: soft-light;
-
   z-index: 2;
   transition: left 1s;
   border-left: 5px solid var(--white);
   border-top: 5px solid var(--white);
   border-radius: 2rem 0 0 0;
-
   color: var(--white);
 }
+
 .menu li,
 .menu button {
   font-family: var(--brand-font);
   text-transform: uppercase;
   color: var(--white);
-  // font-size: 1.33rem;
   font-size: 2.5rem;
   display: flex;
   transition: all 0.2s;
@@ -95,18 +87,16 @@
   z-index: 2;
 }
 
-//fancy button animation
-
 .menu-btn__burger {
   width: 30px;
   height: 4.5px;
   background: var(--white);
   border-radius: 5px;
   position: relative;
-
   transition: all 0.5s;
   transition-timing-function: var(--bounce);
 }
+
 .menu-btn__burger::before,
 .menu-btn__burger::after {
   content: '';
@@ -119,9 +109,11 @@
   transition: all 0.5s;
   transition-timing-function: var(--bounce);
 }
+
 .menu-btn__burger::before {
   transform: translateX(-15px) translateY(-10px);
 }
+
 .menu-btn__burger::after {
   transform: translateX(-15px) translateY(10px);
 }
@@ -131,9 +123,11 @@
   background: transparent;
   position: fixed;
 }
+
 .menu-btn.open .menu-btn__burger::before {
   transform: rotate(45deg) translate(43px, -43px);
 }
+
 .menu-btn.open .menu-btn__burger::after {
   transform: rotate(-45deg) translate(43px, 43px);
 }
@@ -153,7 +147,6 @@
       display: flex;
       justify-content: flex-start;
       align-items: center;
-
       position: relative;
 
       .menu {
@@ -168,7 +161,6 @@
         position: relative;
         z-index: 1;
         left: 0;
-
         border-radius: 0;
         margin-left: 4rem;
 
@@ -195,12 +187,12 @@
           height: 19.2px;
           content: '';
         }
+
         .help::before {
           @include icon-styling;
           background-image: url('../../../public/assets/icons/circle-question-solid.svg');
           width: 24px;
           height: 24px;
-
           content: '';
         }
 
@@ -213,11 +205,9 @@
       .play-container {
         visibility: visible;
         display: flex;
-
         position: absolute;
         z-index: 1;
         right: 0;
-
         align-items: center;
         justify-content: center;
 
@@ -235,11 +225,13 @@
             transform: rotate(6deg) scale(0.8);
           }
         }
+
         .paragraph {
           font-family: Arial, Roboto, sans-serif;
           font-size: 0.9rem;
           color: var(--white);
           line-height: 1.2rem;
+
           button {
             font-family: 'Anton', sans-serif;
             color: var(--white);
@@ -266,12 +258,10 @@
           font-size: 1.3rem;
         }
       }
-
       .play-container {
         .right {
           transform: scale(1);
           margin-top: 5.75rem;
-
           &:hover {
             transform: rotate(6deg) scale(1);
           }

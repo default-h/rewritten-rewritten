@@ -2,9 +2,11 @@
   display: flex;
   margin-bottom: 0.75rem;
   width: 100vw;
+
   .banner {
     position: relative;
   }
+
   .container-video {
     display: none;
   }
@@ -15,6 +17,7 @@
     .banner {
       display: none;
     }
+
     .container-video {
       display: block;
       position: relative;
@@ -25,7 +28,6 @@
         left: 50%;
         -webkit-transform: translateX(-50%);
         transform: translateX(-50%);
-
         transition: all 0.5s;
         transition-timing-function: var(--bounce);
         z-index: 1;
