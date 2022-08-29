@@ -168,14 +168,14 @@ const Login = ({
                 <div
                   className={`${validUser ? styles['valid'] : styles['hide']}`}
                 >
-                  <Image src={valid}></Image>
+                  <Image src={valid} alt=''></Image>
                 </div>
                 <div
                   className={`${
                     validUser || !user ? styles['hide'] : styles['invalid']
                   }`}
                 >
-                  <Image src={invalid}></Image>
+                  <Image src={invalid} alt=''></Image>
                 </div>
               </label>
               <input
@@ -209,14 +209,14 @@ const Login = ({
                 <div
                   className={`${validEmail ? styles['valid'] : styles['hide']}`}
                 >
-                  <Image src={valid}></Image>
+                  <Image src={valid} alt=''></Image>
                 </div>
                 <div
                   className={`${
                     validEmail || !email ? styles['hide'] : styles['invalid']
                   }`}
                 >
-                  <Image src={invalid}></Image>
+                  <Image src={invalid} alt=''></Image>
                 </div>
               </label>
               <input
@@ -249,14 +249,14 @@ const Login = ({
                 <div
                   className={`${validPass ? styles['valid'] : styles['hide']}`}
                 >
-                  <Image src={valid}></Image>
+                  <Image src={valid} alt=''></Image>
                 </div>
                 <div
                   className={`${
                     validPass || !pass ? styles['hide'] : styles['invalid']
                   }`}
                 >
-                  <Image src={invalid}></Image>
+                  <Image src={invalid} alt=''></Image>
                 </div>
               </label>
               <input
@@ -304,7 +304,7 @@ const Login = ({
                     validMatch && matchPass ? styles['valid'] : styles['hide']
                   }`}
                 >
-                  <Image src={valid}></Image>
+                  <Image src={valid} alt=''></Image>
                 </div>
                 <div
                   className={`${
@@ -313,7 +313,7 @@ const Login = ({
                       : styles['invalid']
                   }`}
                 >
-                  <Image src={invalid}></Image>
+                  <Image src={invalid} alt=''></Image>
                 </div>
               </label>
               <input
