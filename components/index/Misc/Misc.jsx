@@ -15,7 +15,7 @@ const Misc = () => {
     <section className={styles.container}>
       <div className={styles.right}>
         <div>
-          <Image src={poll} alt='Latest news' width={200} height={50} />
+          <Image src={poll} alt='Latest poll' width={200} height={50} />
         </div>
         <figure className={styles.box}>
           <h3 className={styles.title}>

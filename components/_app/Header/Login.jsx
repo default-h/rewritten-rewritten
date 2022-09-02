@@ -109,7 +109,7 @@ const Login = ({
             src={exit}
             width={30}
             height={30}
-            alt='Close login menu'
+            alt=''
           />
         </button>
 

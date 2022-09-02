@@ -20,12 +20,7 @@ const News = ({ recentNews }) => {
             >
               <div className={styles.box}>
                 <div className={styles.image}>
-                  <Image
-                    src={news.image}
-                    alt='Blog post image'
-                    width={1200}
-                    height={675}
-                  />
+                  <Image src={news.image} alt='' width={1200} height={675} />
                 </div>
                 <h3>{news.title}</h3>
                 <p className={styles.info}>

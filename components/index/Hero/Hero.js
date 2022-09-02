@@ -7,13 +7,7 @@ const Hero = () => {
   return (
     <section className={styles.container}>
       <div className={styles.banner}>
-        <Image
-          src={banner}
-          alt='Toontown Rewritten banner'
-          width={1640}
-          height={680}
-          loading='lazy'
-        />
+        <Image src={banner} alt='' width={1640} height={680} loading='lazy' />
       </div>
       <div className={styles['container-video']}>
         <video
